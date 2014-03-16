@@ -1,0 +1,180 @@
+@import 'compass/reset'
+@import 'compass/css3'
+
+$gray95: #f2f2f2
+$gray90: #e6e6e6
+$gray60: #999999
+$gray15: #262626
+$orange: #f08020
+$rgba-shadow: rgba(0,0,0,0.3)
+$alertsColor: #c70b0b
+
+@mixin background($url, $width, $height)
+	background: url($url) no-repeat
+	width: $width
+	height: $height
+	background-position: center
+
+@mixin gradient($color1, $color2)
+	background: -webkit-linear-gradient($color1, $color2)
+	background: -o-linear-gradient($color1, $color2)
+	background: -moz-linear-gradient($color1, $color2)
+	background: linear-gradient($color1, $color2)
+
+@mixin fixed($top: 0px, $right: 0px, $bottom: 0px, $left: 0px)
+	position: fixed
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left
+
+// ********************************************************************
+// *                        Default Font                              *
+// ********************************************************************
+
+@mixin typography($weight, $transform, $size, $color)
+	font-family: 'Open Sans', sans-serif
+	font-weight: $weight
+	text-transform: $transform
+	font-size: $size
+	color: $color
+
+body
+	background-color: $gray95
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+
+.hide
+	display: none
+
+
+.hide-text 
+	text-indent: -999999px
+
+.lowercase
+	text-transform: lowercase
+
+// ********************************************************************
+// *                           Fixed Top                              *
+// ********************************************************************
+
+.top-navigation
+	background-color: $gray15
+	max-wdith: 500px
+	height: 55px
+	+box-shadow($rgba-shadow 0px 1px 3px)
+	+fixed()
+	margin-bottom: 50px
+	z-index: 999
+	input
+		border: 1px solid #444444
+		background-color: #ffffff
+		padding: 5px
+		color: #DDDDDD
+		font-size: 12px
+		-moz-border-radius: 4px
+		-webkit-border-radius: 4px
+	.logo
+		float: left
+		display: block
+		+background(image-path("logo_fsa.gif"), 102px, 27px)
+		margin: 13px 20px 0px 50px
+
+// ********************************************************************
+// *                            Content                               *
+// ********************************************************************
+
+section.wrapper
+	width: 90%
+	max-width: 1100px
+	margin: 0 auto
+	margin-top: 65px
+	nav.menu
+		text-align: right
+		height: 60px
+		padding-top: 15px
+		padding-bottom: 15px
+		+typography(700, capitalize, 12px, $gray60)
+		ul
+			padding-top: 10px
+			li
+				display: inline
+				margin-right: 30px
+				padding: 5px 20px 5px 20px
+				+single-transition(all, 0.2s)
+				+border-radius(20px)
+				&:hover
+					background-color: $gray90
+					+box-shadow(rgba(0, 0, 0, 0.1) 0px 1px 3px inset)
+			a
+				text-decoration: none
+				color: $gray60
+			img
+				position: relative
+				top: 5px
+				right: 5px
+			.icon-fix
+				top: 3px
+	.icon-expand
+		+background(image-path("icons/expand.png"), 12px, 10px)
+		position: relative
+		right: 3px
+		top: -47px
+		border: none
+	.title
+		display: block
+		padding-top: 0px
+		background-color: #ffffff
+		height: 1100px
+		+box-shadow($rgba-shadow 0px 1px 6px)
+	.title-header
+		background-color: $orange
+		+typography(700, uppercase, 10px, #ffffff)
+		height: 55px
+		a
+			color: #ffffff
+		&:hover
+			+opacity(0.6)
+		ul
+			padding-top: 10px
+			float: right
+			li
+				display: inline
+				padding: 5px 20px 5px 20px
+				border-right: 1px solid #f3994d  
+			img
+				position: relative
+				top: 5px
+				right: 8px
+
+// ********************************************************************
+// *                              Menu                                *
+// ********************************************************************
+
+nav.content-nav
+	padding: 30px 0px 0px 30px
+	width: 170px
+	height: 100%
+	float: left 
+	background-color: $gray95
+	ul
+		line-height: 2.5
+		cursor: pointer
+		a
+			+typography(700, capitalize, 12px, $gray60)
+			text-decoration: none
+			&:hover
+			color: $orange
+		li.active
+			background-color: #ffffff
+			margin-left: -30px
+			padding-left: 30px
+			a
+				color: $orange
+.content
+	margin-left: 200px
+	padding: 50px 50px 0px 50px
+	+typography(400, capitalize, 16px, $gray60)
+	line-height: 2
+	h3
+		+typography(700, capitalize, 32px, $orange)

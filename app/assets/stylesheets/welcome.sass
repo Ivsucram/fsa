@@ -60,11 +60,9 @@ body
 
 .top-navigation
 	background-color: $gray15
-	max-wdith: 500px
 	height: 55px
 	+box-shadow($rgba-shadow 0px 1px 3px)
 	+fixed()
-	margin-bottom: 50px
 	z-index: 999
 	input
 		border: 1px solid #444444
@@ -178,3 +176,15 @@ nav.content-nav
 	line-height: 2
 	h3
 		+typography(700, capitalize, 32px, $orange)
+
+// ********************************************************************
+// *                            Footer                                *
+// ********************************************************************
+
+.bottom-navigation
+	background-color: $gray15
+	max-wdith: 500px
+	height: 55px
+	+box-shadow($rgba-shadow 0px 1px 3px)
+	+fixed(100%-55px)
+	z-index: 999
